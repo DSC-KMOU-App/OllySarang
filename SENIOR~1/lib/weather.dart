@@ -285,8 +285,8 @@ class _weatherStatefulWidget extends State<weather> {
         shrinkWrap: true,
         itemCount: weather == null ? 0 : weather.length,
         itemBuilder: (BuildContext context,int index){
-          return new Container(
-            color: index%2==1 ? Colors.greenAccent : Colors.amberAccent,
+          return new Card(
+            color: index%2==1 ? Colors.amber[100] : Colors.deepOrange[100],
             child:ListTile(
               leading: Container(
                   width: 60.0,
@@ -294,7 +294,7 @@ class _weatherStatefulWidget extends State<weather> {
                   child:weather[index]["iconname"]
               ),
               title: weather[index]["title"],
-              subtitle: Text(weather[index]["status"]),
+              subtitle: Text(weather[index]["status"],style: TextStyle(fontSize: 20)),
             ),
           );
         },

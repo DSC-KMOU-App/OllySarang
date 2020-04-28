@@ -42,7 +42,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
               padding: EdgeInsets.only(
                   top: 60.0, left: 30.0, right: 30.0, bottom: 30.0),
               child: Text(
-                '할 일 목록',
+                '할 일',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 50.0,
@@ -52,11 +52,17 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
             ),
             Container(
               padding: EdgeInsets.only(
-                  top: 30.0, left: 70.0
+                  top: 30.0, left: 100
               ),
-              child: FloatingActionButton(
-                backgroundColor: Colors.red[400],
-                child: Icon(Icons.add),
+              child: FloatingActionButton.extended(
+                elevation: 5.0,
+                backgroundColor: Colors.redAccent[200],
+                label: Row(
+                  children: <Widget>[
+                    Icon(Icons.add),
+                    Text('추가'),
+                  ],
+                ),
                 onPressed: () =>goToNewItemView(),
               ),
             ),
@@ -85,7 +91,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
     return SafeArea(
       child: Center(
           child:  Text(
-            '할 일 없음',
+            '없음',
             style: TextStyle(fontSize: 30),
           )
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intent/intent.dart'as tent;
+import 'package:intent/action.dart'as act;
 import 'dart:io';
 
 class Page1 extends StatelessWidget {
@@ -37,8 +39,11 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 color: Color.fromRGBO(138, 192, 85, 1),
                 child:FlatButton(
                   child: Image.asset('images/call.png'),
-                  onPressed: (){
-                    print('call');},
+                  onPressed: (){//전화
+                    tent.Intent()
+                      ..setAction(act.Action.ACTION_DIAL)
+                      ..startActivity().catchError((e) => print(e));
+                  },
                 ),
               ),
               Container(
@@ -46,8 +51,13 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 child:FlatButton(
                   color: Color.fromRGBO(115, 177, 244, 1),
                   child: Image.asset('images/message.png'),
-                  onPressed: (){
-                    print('message');},
+                  onPressed: (){//문자
+                    tent.Intent()
+                      ..setAction(act.Action.ACTION_VIEW)
+                      ..putExtra("sms_body", "The SMS text")
+                      ..setType("vnd.android-dir/mms-sms")
+                      ..startActivity().catchError((e) => print(e));
+                  },
                 ),
               ),
               Container(
@@ -66,10 +76,12 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 color: Color.fromRGBO(245, 187, 69, 1),
                 child:FlatButton(
                   child: Image.asset('images/contact.png'),
-                  onPressed: (){
-                    AppAvailability.launchApp("com.skt.prod.phonebook");
-                    print('contact');
-                  },
+                    onPressed: (){//연락처
+                      tent.Intent()
+                        ..setAction(act.Action.ACTION_VIEW)
+                        ..setData(Uri.parse("content://contacts/people/"))
+                        ..startActivity().catchError((e) => print(e));
+                    }
                 ),
               ),
               Container(
@@ -78,7 +90,9 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 child:FlatButton(
                   child: Image.asset('images/camera.png'),
                   onPressed: (){
-                    print('camera');
+                    tent.Intent()
+                      ..setAction(act.Action.ACTION_IMAGE_CAPTURE)
+                      ..startActivity().catchError((e) => print(e));
                   },
                 ),
               ),

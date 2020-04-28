@@ -24,7 +24,8 @@ class _BasicPageState extends State<BasicPage>{
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
-        title: Text("올리 사랑"),
+        leading: Icon(Icons.people),
+        title: Text("올리 사랑",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold)),
       ),
       body: _screen[_currentindex],
       bottomNavigationBar: new BottomNavigationBar(
