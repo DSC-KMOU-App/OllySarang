@@ -7,12 +7,12 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-class weather extends StatefulWidget {
+class Weather extends StatefulWidget {
   @override
-  State createState() => _weatherStatefulWidget();
+  State createState() => _WeatherStatefulWidget();
 }
 
-class _weatherStatefulWidget extends State<weather> {
+class _WeatherStatefulWidget extends State<Weather> {
   @override
   List weather = [];
   final double RE = 6371.00877; // 지구 반경(km)

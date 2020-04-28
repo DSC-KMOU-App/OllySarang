@@ -5,7 +5,6 @@ import 'package:intent/action.dart'as act;
 import 'dart:io';
 
 class Page1 extends StatelessWidget {
-  static const String _title = '한글 바로가기';
   @override
   Widget build(BuildContext context) {
     return Page1StatefulWidget();
@@ -52,8 +51,7 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                   child: Image.asset('images/message.png'),
                   onPressed: (){//문자
                     tent.Intent()
-                      ..setAction(act.Action.ACTION_VIEW)
-                      ..putExtra("sms_body", "The SMS text")
+                      ..setAction(act.Action.ACTION_MAIN)
                       ..setType("vnd.android-dir/mms-sms")
                       ..startActivity().catchError((e) => print(e));
                   },
