@@ -27,7 +27,7 @@ class _weatherStatefulWidget extends State<weather> {
 // LCC DFS 좌표변환 ( code :
 //          "toXY"(위경도->좌표, v1:위도, v2:경도),
 //          "toLL"(좌표->위경도,v1:x, v2:y) )
-//
+// 출처: https://gist.github.com/fronteer-kr/14d7f779d52a21ac2f16
 
   Map<dynamic,dynamic> dfs_xy_conv(code, v1, v2) {
     print("실행 !!");
