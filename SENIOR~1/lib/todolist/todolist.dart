@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seniorapp/todolist/new_todo.dart';
 import 'package:seniorapp/todolist/todo.dart';
@@ -37,6 +38,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(
@@ -52,7 +54,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
             ),
             Container(
               padding: EdgeInsets.only(
-                  top: 30.0, left: 100
+                  top: 30.0, right: 30.0
               ),
               child: FloatingActionButton.extended(
                 elevation: 5.0,
