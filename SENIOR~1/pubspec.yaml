@@ -19,7 +19,7 @@ dependencies:
   flutter_appavailability: ^0.0.21
   shared_preferences: ^0.5.6+2
   location: ^3.0.0
-  
+
   image_picker_gallery_camera: ^0.1.4
   path_provider: ^1.6.7
   gallery_saver: ^2.0.1
@@ -38,12 +38,14 @@ flutter:
   fonts:
     - family: Gothic
       fonts:
-      - asset: fonts/GothicA1-Regular.ttf
+        - asset: fonts/GothicA1-Regular.ttf
     - family: nixgon
       fonts:
-      - asset: fonts/NIXGONFONTS M 2.0.ttf
+        - asset: fonts/NIXGONFONTS M 2.0.ttf
   assets:
     - images/band.png
+    - images/naver.png
+    - images/youtube.png
     - images/call.png
     - images/camera.png
     - images/contact.png
@@ -59,6 +61,3 @@ flutter:
     - images/temperature.png
     - images/today.png
     - images/appicon.png
-
-
-

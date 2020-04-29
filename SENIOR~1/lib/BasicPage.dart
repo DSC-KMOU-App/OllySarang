@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seniorapp/Page1.dart';
+import 'package:seniorapp/Page1_1.dart';
+import 'package:seniorapp/Page1_2.dart';
 import 'package:seniorapp/Page2.dart';
 import 'package:seniorapp/Page3.dart';
 
@@ -13,7 +14,7 @@ class BasicPage extends StatefulWidget{
 
 class _BasicPageState extends State<BasicPage>{
   int _currentindex = 0;
-  final List<Widget> _screen = [Page1(),Page2(),Page3()];
+  final List<Widget> _screen = [Page1_1(),Page1_2(),Page2(),Page3()];
   void _onTap(int index){
     setState((){
       _currentindex = index;
@@ -29,13 +30,18 @@ class _BasicPageState extends State<BasicPage>{
       ),
       body: _screen[_currentindex],
       bottomNavigationBar: new BottomNavigationBar(
-          elevation: 0.0,
+          type: BottomNavigationBarType.fixed,
+          elevation: 5.0,
           onTap: _onTap,
           currentIndex: _currentindex,
           items: [
             new BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text('홈 화면'),
+              icon: Icon(Icons.looks_one),
+              title: Text('홈 1'),
+            ),
+            new BottomNavigationBarItem(
+              icon: Icon(Icons.looks_two),
+              title: Text('홈 2'),
             ),
             new BottomNavigationBarItem(
               icon: Icon(Icons.wb_sunny),
