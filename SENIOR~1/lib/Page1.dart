@@ -30,7 +30,7 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
     ImagePicker.pickImage(source: ImageSource.camera)
         .then((File recordedImage) {
       if (recordedImage != null && recordedImage.path != null) {
-        GallerySaver.saveImage(recordedImage.path, albumName: 'albumName')
+        GallerySaver.saveImage(recordedImage.path, albumName: 'DCIM/camera')
             .then((bool success) {
         });
       }
