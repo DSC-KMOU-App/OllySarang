@@ -42,7 +42,8 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(
-                  top: 60.0, left: 30.0, right: 30.0, bottom: 50.0),
+                  top: 30.0, left: 30.0, right: 30.0, bottom: 30.0
+              ),
               child: Text(
                 '할 일',
                 style: TextStyle(
@@ -54,7 +55,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
             ),
             Container(
               padding: EdgeInsets.only(
-                  top: 30.0, right: 30.0
+                  top: 30.0, right: 30.0, bottom: 30.0
               ),
               child: FloatingActionButton.extended(
                 elevation: 5.0,
@@ -71,23 +72,26 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
             ),
           ],
         ),
-        SizedBox(height: 10),
         Expanded(
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             decoration: BoxDecoration(
               color: Colors.black12,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.0),
-                topRight: Radius.circular(20.0),
+                topLeft: Radius.circular(10.0),
+                topRight: Radius.circular(10.0),
               ),
             ),
-            child: list.isEmpty ? emptyList() : buildListView(),
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: 5.0,),
+                Flexible(child: list.isEmpty ? emptyList() : buildListView()),
+              ],
+            ),
           ),
         ),
       ],
     );
-
   }
 
   Widget emptyList(){
@@ -114,16 +118,23 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
     return Card(
         child: ListTile(
           onTap: () => changeItemCompleteness(item),
-          leading: Icon(item.completed
-              ? Icons.check_box
-              : Icons.check_box_outline_blank,
-            key: Key('completed-icon-$index'),
+          leading: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(item.completed
+                  ? Icons.check_box
+                  : Icons.check_box_outline_blank,
+                key: Key('completed-icon-$index'),
+              ),
+            ],
           ),
           title: Text(
             item.title,
             key: Key('item-$index'),
             style: TextStyle(
-                fontSize: 25,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
                 color: item.completed ? Colors.grey : Colors.black,
                 decoration: item.completed ? TextDecoration.lineThrough : null
             ),
@@ -134,14 +145,14 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
                 ButtonTheme(
                     minWidth:8,
                     child:FlatButton(
-                        child:Text("수정",style: TextStyle(fontSize: 15),),
+                        child:Text("수정",style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700,),),
                         onPressed: () => goToEditItemView(item)
                     )
                 ),
                 ButtonTheme(
                     minWidth:8,
                     child:FlatButton(
-                        child:Text("삭제",style: TextStyle(fontSize: 15),),
+                        child:Text("삭제",style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700,),),
                         onPressed: () {
                           showDialog(
                               context: context,
@@ -154,7 +165,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
                                 ),
                                 actions: <Widget>[
                                   FlatButton(
-                                    child: Text("취소",style: TextStyle(fontSize: 30)),
+                                    child: Text("취소",style: TextStyle(fontSize: 30,)),
                                     onPressed: (){
                                       setState(() {
                                         Navigator.pop(context);
@@ -162,7 +173,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
                                     },
                                   ),
                                   FlatButton(
-                                    child: Text("확인",style: TextStyle(fontSize: 30)),
+                                    child: Text("삭제",style: TextStyle(fontSize: 30)),
                                     onPressed: (){
                                       setState(() {
                                         removeItem(item);
