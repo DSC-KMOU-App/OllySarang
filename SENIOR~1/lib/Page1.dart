@@ -24,12 +24,7 @@ class Page1StatefulWidget extends StatefulWidget {
 
 class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
   
-  File _image;
-
-  getImage(ImgSource source) async {
-    final directory = await getApplicationDocumentsDirectory();
-    final String path = directory.path;
-
+  Future getImage(ImgSource source) async {
     var image = await ImagePickerGC.pickImage(
       context: context,
       source: source,
@@ -38,17 +33,6 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
         color: Colors.red,
       ),//cameraIcon and galleryIcon can change. If no icon provided default icon will be present
     );
-    setState(() {
-      _image = image;
-    });
-    DateTime now = DateTime.now();
-    String formattedDate = DateFormat('yyyy-MM-dd – kk:mm').format(now);
-    final fileName = formattedDate;
-    final File localImage = await _image.copy('$path/$fileName');
-    
-    setState(() {
-      _image = localImage;
-    });
   }
 
   void updateState() {
@@ -125,10 +109,7 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 child:FlatButton(
                   child: Image.asset('images/gallery.png'),
                   onPressed: (){//갤러리
-                    tent.Intent()
-                        ..setAction(act.Action.ACTION_VIEW)
-                        ..setData(Uri.parse("content://media/internal/images/media"))
-                        ..startActivity().catchError((e) => print(e));
+                    getImage(ImgSource.Gallery);
                   },
                 ),
               ),
