@@ -197,7 +197,7 @@ class _WeatherStatefulWidget extends State<Weather> {
     }
     else {
       var ptycategory = [' 비안옴', ' 비', ' 진눈깨비', ' 눈', ' 소나기'];
-
+      List temp = [];
       for (int i = 0; i < 10; ++i) {
         var category = {
           "title": Text(""),
@@ -250,11 +250,15 @@ class _WeatherStatefulWidget extends State<Weather> {
         else {
           continue;
         }
-        weatherlist.add(category);
-
+        temp.add(category);
       }
+      weatherlist.add(temp[3]);
+      weatherlist.add(temp[1]);
+      weatherlist.add(temp[4]);
+      weatherlist.add(temp[2]);
+      weatherlist.add(temp[0]);
     }
-    print("index1: "+weatherlist[0].toString());
+
     return weatherlist;
   }
   Future<List> getData(String url) async {
