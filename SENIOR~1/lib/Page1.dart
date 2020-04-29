@@ -32,10 +32,9 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
       right: true,
       child: Center(
         child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
-                height: 90,
                 color: Color.fromRGBO(138, 192, 85, 1),
                 child:FlatButton(
                   child: Image.asset('images/call.png'),
@@ -47,7 +46,6 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 ),
               ),
               Container(
-                height: 90,
                 child:FlatButton(
                   color: Color.fromRGBO(115, 177, 244, 1),
                   child: Image.asset('images/message.png'),
@@ -61,7 +59,6 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 ),
               ),
               Container(
-                height: 90,
                 color: Color.fromRGBO(254,205,87,1),
                 child:FlatButton(
                   child: Image.asset('images/kakao.png'),
@@ -72,7 +69,6 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 ),
               ),
               Container(
-                height: 90,
                 color: Color.fromRGBO(245, 187, 69, 1),
                 child:FlatButton(
                   child: Image.asset('images/contact.png'),
@@ -85,7 +81,6 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 ),
               ),
               Container(
-                height: 90,
                 color: Color.fromRGBO(236,85,100,1),
                 child:FlatButton(
                   child: Image.asset('images/camera.png'),
@@ -97,7 +92,6 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 ),
               ),
               Container(
-                height: 90,
                 color: Color.fromRGBO(172, 146, 234, 1),
                 child:FlatButton(
                   child: Image.asset('images/gallery.png'),
@@ -108,7 +102,6 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 ),
               ),
               Container(
-                height: 90,
                 color: Color.fromRGBO(158, 211, 106, 1),
                 child:FlatButton(
                   child: Image.asset('images/band.png'),

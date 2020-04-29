@@ -40,7 +40,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(
-                  top: 60.0, left: 30.0, right: 30.0, bottom: 30.0),
+                  top: 60.0, left: 30.0, right: 30.0, bottom: 50.0),
               child: Text(
                 '할 일',
                 style: TextStyle(
@@ -51,13 +51,16 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
               ),
             ),
             Container(
+
               padding: EdgeInsets.only(
-                  top: 30.0, left: 100
+                  left: 30,
+                  right: 30
               ),
               child: FloatingActionButton.extended(
                 elevation: 5.0,
                 backgroundColor: Colors.redAccent[200],
                 label: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Icon(Icons.add),
                     Text('추가'),

@@ -147,6 +147,15 @@ class _weatherStatefulWidget extends State<weather> {
       else k = 6;
     }
     else{
+      nowDatenum--;
+      if(nowDatenum==0){
+        nowDatenum = Month[nowMonthnum--];
+        if(nowMonthnum==0){
+          nowYearnum--;
+          nowMonthnum = 12;
+          nowDatenum = 31;
+        }
+      }
       if(minute<=10) k = 6;
       else k = 7;
     }
