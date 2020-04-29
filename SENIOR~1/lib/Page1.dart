@@ -51,7 +51,7 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                   child: Image.asset('images/message.png'),
                   onPressed: (){//문자
                     tent.Intent()
-                      ..setAction(act.Action.ACTION_VIEW)
+                      ..setAction(act.Action.ACTION_MAIN)
                       ..putExtra("sms_body", "The SMS text")
                       ..setType("vnd.android-dir/mms-sms")
                       ..startActivity().catchError((e) => print(e));

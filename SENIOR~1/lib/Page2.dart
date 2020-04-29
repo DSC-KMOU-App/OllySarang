@@ -49,7 +49,7 @@ class _Page2StatefulWidgetState extends State<Page2StatefulWidget> {
           Container(
             alignment: Alignment(0,0),
             height: 100,
-            child: wookieclock(),
+            child: Wookieclock(),
           ),
           Row(
               children: <Widget>[
@@ -68,7 +68,7 @@ class _Page2StatefulWidgetState extends State<Page2StatefulWidget> {
               ]
           ),
           SizedBox(height: 10),
-          Flexible(child: weather()),
+          Flexible(child: Weather()),
         ],
       ),
     );

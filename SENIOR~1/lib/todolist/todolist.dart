@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seniorapp/todolist/new_todo.dart';
 import 'package:seniorapp/todolist/todo.dart';
@@ -51,10 +52,8 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
               ),
             ),
             Container(
-
               padding: EdgeInsets.only(
-                  left: 30,
-                  right: 30
+                  top: 30.0, right: 30.0
               ),
               child: FloatingActionButton.extended(
                 elevation: 5.0,

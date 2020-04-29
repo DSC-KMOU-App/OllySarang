@@ -2,15 +2,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class wookieclock extends StatefulWidget {
-  wookieclock({Key key, this.title}) : super(key: key);
+class Wookieclock extends StatefulWidget {
+  Wookieclock({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _wookieclockState createState() => _wookieclockState();
+  _WookieclockState createState() => _WookieclockState();
 }
 
-class _wookieclockState extends State<wookieclock> {
+class _WookieclockState extends State<Wookieclock> {
   String _timeString;
   bool isDisposed = false;
 
