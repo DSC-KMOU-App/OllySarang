@@ -6,7 +6,6 @@ import 'package:intl/intl.dart';
 import 'dart:ui';
 
 void main() {
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   initializeDateFormatting().then((_) => runApp(Start()));
   Intl.defaultLocale = 'ko_KR';
 }
@@ -15,6 +14,7 @@ class Start extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
       title: '올리사랑',
       theme: ThemeData(
