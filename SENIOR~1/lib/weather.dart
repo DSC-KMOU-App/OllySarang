@@ -196,7 +196,7 @@ class _WeatherStatefulWidget extends State<Weather> {
       });
     }
     else {
-      var ptycategory = [' 비안옴', ' 비', ' 진눈깨비', ' 눈', ' 소나기'];
+      var ptycategory = [' 비 안 와요', ' 비 내려요', ' 진눈깨비에요', ' 눈 내려요', ' 소나기에요'];
       List temp = [];
       for (int i = 0; i < 10; ++i) {
         var category = {
@@ -205,24 +205,24 @@ class _WeatherStatefulWidget extends State<Weather> {
           "iconname": Image.asset('images/sunny.png'),
         };
         if (data[i]["category"] == "POP") {
-          category["title"] =  Text("비올 확률",
+          category["title"] =  Text("비가 올 확률",
             style: TextStyle(fontFamily: 'Gothic', fontSize: 20.0,color: Color.fromRGBO(84,55,41,1), fontWeight: FontWeight.bold),);
           category["status"] = data[i]["fcstValue"].toString() + "%";
           category["iconname"] = Image.asset('images/rain.png');
         }
         else if (data[i]["category"] == "SKY") {
-          category["title"] = Text("현재 하늘은",
+          category["title"] = Text("현재 하늘",
             style: TextStyle(fontSize: 20.0,color: Color.fromRGBO(84,55,41,1), fontWeight: FontWeight.bold),);
           int status = int.parse(data[i]['fcstValue']);
           String sky = "";
           if (status < 6) {
-            sky = " 맑음";
+            sky = " 맑아요 😉";
             category["iconname"] = Image.asset('images/sunny.png');
           } else if (status < 9) {
-            sky = " 구름 많음";
+            sky = " 구름 많아요 😮";
             category["iconname"] = Image.asset('images/cloudy.png');
           } else {
-            sky = " 흐림";
+            sky = " 흐려요 😦";
             category["iconname"] = Image.asset('images/cloudsun.png');
           }
           category["status"] = sky;
@@ -235,7 +235,7 @@ class _WeatherStatefulWidget extends State<Weather> {
           category["iconname"] = Image.asset('images/humidity.png');
         }
         else if (data[i]["category"] == "T3H") {
-          category["title"] = Text("온도",
+          category["title"] = Text("기온",
             style: TextStyle(fontSize: 20.0,color: Color.fromRGBO(84,55,41,1), fontWeight: FontWeight.bold),);
           category["status"] = data[i]["fcstValue"].toString() + "℃";
           category["iconname"] = Image.asset('images/temperature.png');
@@ -299,7 +299,7 @@ class _WeatherStatefulWidget extends State<Weather> {
         itemCount: weather == null ? 0 : weather.length,
         itemBuilder: (BuildContext context,int index){
           return new Card(
-            color: index%2==1 ? Colors.amber[100] : Colors.deepOrange[100],
+              color: index%2==1 ? Colors.amber[200] : Colors.deepOrange[200],
             child:ListTile(
               leading: Container(
                   width: 60.0,
