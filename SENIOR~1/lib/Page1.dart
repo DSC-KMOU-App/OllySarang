@@ -22,6 +22,8 @@ class Page1StatefulWidget extends StatefulWidget {
 }
 
 class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
+  
+  File _image;
 
   getImage(ImgSource source) async {
     final directory = await getApplicationDocumentsDirectory();
