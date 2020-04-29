@@ -116,7 +116,7 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 child:FlatButton(
                   child: Image.asset('images/camera.png'),
                   onPressed: (){//카메라
-                    getImage(ImgSource.Camera)
+                    getImage(ImgSource.Camera);
                   },
                 ),
               ),
