@@ -4,6 +4,12 @@ import 'package:intent/intent.dart'as tent;
 import 'package:intent/action.dart'as act;
 import 'dart:io';
 
+import 'package:image_picker_gallery_camera/image_picker_gallery_camera.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:intl/intl.dart';
+import 'package:gallery_saver/gallery_saver.dart';
+import 'package:image_picker/image_picker.dart';
+
 class Page1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,6 +25,18 @@ class Page1StatefulWidget extends StatefulWidget {
 }
 
 class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
+  
+  void _takePhoto() async {
+    ImagePicker.pickImage(source: ImageSource.camera)
+        .then((File recordedImage) {
+      if (recordedImage != null && recordedImage.path != null) {
+        GallerySaver.saveImage(recordedImage.path, albumName: 'albumName')
+            .then((bool success) {
+        });
+      }
+    });
+  }
+  
   void updateState() {
     print("Update State of FirstPage");
   }
@@ -83,10 +101,8 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 color: Color.fromRGBO(236,85,100,1),
                 child:FlatButton(
                   child: Image.asset('images/camera.png'),
-                  onPressed: (){
-                    tent.Intent()
-                      ..setAction(act.Action.ACTION_IMAGE_CAPTURE)
-                      ..startActivity().catchError((e) => print(e));
+                  onPressed: (){//카메라
+                    _takePhoto();
                   },
                 ),
               ),
@@ -94,7 +110,7 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 color: Color.fromRGBO(172, 146, 234, 1),
                 child:FlatButton(
                   child: Image.asset('images/gallery.png'),
-                  onPressed: (){
+                  onPressed: (){//
                     print('gallery');
                     AppAvailability.launchApp("com.google.android.apps.photos");
                   },
