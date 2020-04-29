@@ -7,6 +7,8 @@ import 'dart:io';
 import 'package:image_picker_gallery_camera/image_picker_gallery_camera.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:intl/intl.dart';
+import 'package:gallery_saver/gallery_saver.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Page1 extends StatelessWidget {
   @override
@@ -33,6 +35,17 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
         color: Colors.red,
       ),//cameraIcon and galleryIcon can change. If no icon provided default icon will be present
     );
+  }
+  
+  void _takePhoto() async {
+    ImagePicker.pickImage(source: ImageSource.camera)
+        .then((File recordedImage) {
+      if (recordedImage != null && recordedImage.path != null) {
+        GallerySaver.saveImage(recordedImage.path, albumName: 'albumName')
+            .then((bool success) {
+        });
+      }
+    });
   }
 
   void updateState() {
@@ -100,7 +113,7 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 child:FlatButton(
                   child: Image.asset('images/camera.png'),
                   onPressed: (){//카메라
-                    getImage(ImgSource.Camera);
+                    _takePhoto();
                   },
                 ),
               ),
