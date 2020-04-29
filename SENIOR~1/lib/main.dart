@@ -16,10 +16,10 @@ class Start extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '올리 사랑',
+      title: '올리사랑',
       theme: ThemeData(
         fontFamily: 'Gothic',
-        primaryColor: Color.fromRGBO(245, 111, 87, 1)  ,
+        primaryColor: Color.fromRGBO(245, 111, 87, 1),
       ),
       home: BasicPage(),
       debugShowCheckedModeBanner: false,

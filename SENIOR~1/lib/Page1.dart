@@ -5,7 +5,6 @@ import 'package:intent/action.dart'as act;
 import 'dart:io';
 
 class Page1 extends StatelessWidget {
-  static const String _title = '한글 바로가기';
   @override
   Widget build(BuildContext context) {
     return Page1StatefulWidget();

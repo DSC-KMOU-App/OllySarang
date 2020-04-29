@@ -18,10 +18,6 @@ class Page2StatefulWidget extends StatefulWidget {
 
 class _Page2StatefulWidgetState extends State<Page2StatefulWidget> {
   @override
-  void initState(){
-
-  }
-
   Widget build(BuildContext context) {
     return SafeArea(
       top: false,
