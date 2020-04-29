@@ -15,7 +15,7 @@ class _WookieclockState extends State<Wookieclock> {
   bool isDisposed = false;
 
   String _formatDateTime(DateTime dateTime) {
-    return DateFormat(' yyyy년  MM월  dd일 \naa hh시 mm분 ss초').format(dateTime);
+    return DateFormat.yMMMEd().addPattern('\n'"a hh시mm분ss초").format(dateTime);
   }
 
   @override
