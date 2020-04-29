@@ -4,6 +4,9 @@ import 'package:intent/intent.dart'as tent;
 import 'package:intent/action.dart'as act;
 import 'dart:io';
 
+import 'package:image_picker_gallery_camera/image_picker_gallery_camera.dart';
+import 'package:path_provider/path_provider.dart';
+
 class Page1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,6 +22,26 @@ class Page1StatefulWidget extends StatefulWidget {
 }
 
 class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
+
+  getImage(ImgSource source) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final String path = directory.path;
+
+    var image = await ImagePickerGC.pickImage(
+      context: context,
+      source: source,
+      cameraIcon: Icon(
+        Icons.add,
+        color: Colors.red,
+      ),//cameraIcon and galleryIcon can change. If no icon provided default icon will be present
+    );
+    setState(() {
+      _image = image;
+    });
+    final fileName = "nori";
+    final File localImage = await _image.copy('$path/$fileName');
+  }
+
   void updateState() {
     print("Update State of FirstPage");
   }
@@ -83,10 +106,8 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 color: Color.fromRGBO(236,85,100,1),
                 child:FlatButton(
                   child: Image.asset('images/camera.png'),
-                  onPressed: (){
-                    tent.Intent()
-                      ..setAction(act.Action.ACTION_IMAGE_CAPTURE)
-                      ..startActivity().catchError((e) => print(e));
+                  onPressed: (){//카메라
+                    getImage(ImgSource.Camera)
                   },
                 ),
               ),
