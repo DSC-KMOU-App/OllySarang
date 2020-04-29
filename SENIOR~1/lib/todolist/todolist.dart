@@ -38,6 +38,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(
