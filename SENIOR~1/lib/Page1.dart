@@ -6,6 +6,7 @@ import 'dart:io';
 
 import 'package:image_picker_gallery_camera/image_picker_gallery_camera.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:intl/intl.dart';
 
 class Page1 extends StatelessWidget {
   @override
@@ -40,8 +41,14 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
     setState(() {
       _image = image;
     });
-    final fileName = "nori";
+    DateTime now = DateTime.now();
+    String formattedDate = DateFormat('yyyy-MM-dd – kk:mm').format(now);
+    final fileName = formattedDate;
     final File localImage = await _image.copy('$path/$fileName');
+    
+    setState(() {
+      _image = localImage;
+    });
   }
 
   void updateState() {
