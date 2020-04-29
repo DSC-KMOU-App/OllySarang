@@ -124,9 +124,11 @@ class _Page1StatefulWidgetState extends State<Page1StatefulWidget> {
                 color: Color.fromRGBO(172, 146, 234, 1),
                 child:FlatButton(
                   child: Image.asset('images/gallery.png'),
-                  onPressed: (){
-                    print('gallery');
-                    AppAvailability.launchApp("com.google.android.apps.photos");
+                  onPressed: (){//갤러리
+                    tent.Intent()
+                        ..setAction(act.Action.ACTION_VIEW)
+                        ..setData(Uri.parse("content://media/internal/images/media"))
+                        ..startActivity().catchError((e) => print(e));
                   },
                 ),
               ),
