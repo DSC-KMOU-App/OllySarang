@@ -1,5 +1,6 @@
 # 올리 사랑 [OllySarang]
 올리사랑은 순우리말로 윗사람을 향한 사랑이라는 의미입니다.
+
 OllySarang is a pure Korean word which means "Love towards elderly".
 
 ## 프로젝트 시작 취지 [Purpose of the Project]
