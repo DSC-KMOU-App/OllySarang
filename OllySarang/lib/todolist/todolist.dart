@@ -34,63 +34,69 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(
-                  top: 30.0, left: 30.0, right: 30.0, bottom: 30.0
-              ),
-              child: Text(
-                '할 일',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 50.0,
-                  fontWeight: FontWeight.w700,
+    return SafeArea(
+      top: true,
+      bottom: true,
+      left: true,
+      right: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.only(
+                    top: 30.0, left: 30.0, right: 30.0, bottom: 30.0
+                ),
+                child: Text(
+                  '할 일',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 50.0,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
-            ),
-            Container(
-              padding: EdgeInsets.only(
-                  top: 30.0, right: 30.0, bottom: 30.0
-              ),
-              child: FloatingActionButton.extended(
-                elevation: 5.0,
-                backgroundColor: Colors.redAccent[200],
-                label: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Icon(Icons.add),
-                    Text('추가'),
-                  ],
+              Container(
+                padding: EdgeInsets.only(
+                    top: 30.0, right: 30.0, bottom: 30.0
                 ),
-                onPressed: () =>goToNewItemView(),
+                child: FloatingActionButton.extended(
+                  elevation: 5.0,
+                  backgroundColor: Colors.redAccent[200],
+                  label: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Icon(Icons.add),
+                      Text('추가'),
+                    ],
+                  ),
+                  onPressed: () =>goToNewItemView(),
+                ),
               ),
-            ),
-          ],
-        ),
-        Expanded(
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
-            decoration: BoxDecoration(
-              color: Colors.black12,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10.0),
-                topRight: Radius.circular(10.0),
+            ],
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              decoration: BoxDecoration(
+                color: Colors.black12,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10.0),
+                  topRight: Radius.circular(10.0),
+                ),
               ),
-            ),
-            child: Column(
-              children: <Widget>[
-                SizedBox(height: 5.0,),
-                Flexible(child: list.isEmpty ? emptyList() : buildListView()),
-              ],
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 5.0,),
+                  Flexible(child: list.isEmpty ? emptyList() : buildListView()),
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
