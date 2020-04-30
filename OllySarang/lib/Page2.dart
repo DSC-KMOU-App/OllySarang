@@ -18,6 +18,10 @@ class Page2StatefulWidget extends StatefulWidget {
 
 class _Page2StatefulWidgetState extends State<Page2StatefulWidget> {
   @override
+  void initState(){
+
+  }
+
   Widget build(BuildContext context) {
     return SafeArea(
       top: false,
@@ -43,6 +47,9 @@ class _Page2StatefulWidgetState extends State<Page2StatefulWidget> {
               ]
           ),
           Container(
+            constraints: BoxConstraints.expand(
+              height: 130.0,
+            ),
             alignment: Alignment(0,0),
             height: 100,
             child: Wookieclock(),
