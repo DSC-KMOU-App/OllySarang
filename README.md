@@ -3,6 +3,9 @@
 
 OllySarang is a pure Korean word which means "Love towards elderly".
 
+OllySarang-master folder = English Version.
+OllySarang folder = Korean Version.
+
 ## 프로젝트 시작 취지 [Purpose of the Project]
 
 빨라지는 스마트화 시대에 노년층의 스마트폰 보급률도 급성장 중. -하지만 스마트폰 활용 능력에는 한계가 발생 (노인 디지털 소외 현상). 이러한 소외를 극복하기 위해서는 더욱 많은 노력과 도움이 필요하겠지만, 우선적으로 노인분들이 스마트폰을 간편하게 사용함으로써 스마트폰과 가까워질 수 있도록 하는 것이 필요하다고 생각. 이에 따라 노년층이 간단하게 접근할 수 있는 즐겨찾기의 개발을 시작했다.
