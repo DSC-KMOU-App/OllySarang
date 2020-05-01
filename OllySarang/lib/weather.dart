@@ -111,7 +111,7 @@ class _WeatherStatefulWidget extends State<Weather> {
       if(minute<=10) {
         nowDatenum--;
         if(nowDatenum==0){
-          nowDatenum = Month[nowMonthnum--];
+          nowDatenum = Month[--nowMonthnum];
           if(nowMonthnum==0){
             nowYearnum--;
             nowMonthnum = 12;
@@ -147,17 +147,17 @@ class _WeatherStatefulWidget extends State<Weather> {
       else k = 6;
     }
     else{
+      // 0시 ~ 1시
       nowDatenum--;
       if(nowDatenum==0){
-        nowDatenum = Month[nowMonthnum--];
+        nowDatenum = Month[--nowMonthnum];
         if(nowMonthnum==0){
           nowYearnum--;
           nowMonthnum = 12;
           nowDatenum = 31;
         }
       }
-      if(minute<=10) k = 6;
-      else k = 7;
+      k = 7;
     }
     String nowYear = nowYearnum.toString();
     String nowMonth = "";
@@ -299,7 +299,7 @@ class _WeatherStatefulWidget extends State<Weather> {
         itemCount: weather == null ? 0 : weather.length,
         itemBuilder: (BuildContext context,int index){
           return new Card(
-              color: index%2==1 ? Colors.amber[200] : Colors.deepOrange[200],
+            color: index%2==1 ? Colors.amber[200] : Colors.deepOrange[200],
             child:ListTile(
               leading: Container(
                   width: 60.0,
